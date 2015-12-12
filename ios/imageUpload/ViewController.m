@@ -14,6 +14,8 @@
 
 @property (nonatomic, strong) UIImage *selectedImage;
 @property (nonatomic, strong) NSString *imageName;
+@property (nonatomic, weak) IBOutlet UIImageView *imgView;
+@property (nonatomic, weak) IBOutlet UILabel *statusLbl;
 @end
 
 @implementation ViewController
@@ -51,6 +53,7 @@
         
         strongSelf.selectedImage = image;
         strongSelf.imageName = [imageRep filename];
+        self.imgView.image = image;
     };
     
     ALAssetsLibrary* assetslibrary = [[ALAssetsLibrary alloc] init];
@@ -83,10 +86,15 @@
                                     }
                                     error:nil];
     
+    __weak typeof (self) weakSelf = self;
     AFHTTPRequestOperation *operation = [manager HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        __strong typeof (weakSelf) strongSelf = weakSelf;
         NSLog(@"success. upload,%@", responseObject);
+        strongSelf.statusLbl.text = @"upload success";
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        __strong typeof (weakSelf) strongSelf = weakSelf;
         NSLog(@"failure. upload....");
+        strongSelf.statusLbl.text = @"upload failed";
     }];
     [manager.operationQueue addOperation:operation];
     

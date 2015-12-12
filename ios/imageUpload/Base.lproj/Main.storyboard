@@ -17,27 +17,64 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzR-sF-pNl">
-                                <rect key="frame" x="123" y="213" width="74" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzR-sF-pNl">
+                                <rect key="frame" x="98" y="269" width="125" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="3V7-U9-Wzh"/>
+                                    <constraint firstAttribute="width" constant="125" id="f3p-oR-QfQ"/>
+                                </constraints>
                                 <state key="normal" title="pick image"/>
                                 <connections>
                                     <action selector="pickImage" destination="BYZ-38-t0r" eventType="touchUpInside" id="0e9-wf-gSe"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Hz-L5-bRf">
-                                <rect key="frame" x="137" y="257" width="47" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Hz-L5-bRf">
+                                <rect key="frame" x="115" y="311" width="91" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="UXl-Xh-Cbk"/>
+                                    <constraint firstAttribute="width" constant="91" id="vXe-JE-lVa"/>
+                                </constraints>
                                 <state key="normal" title="upload"/>
                                 <connections>
                                     <action selector="upload" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ioo-JS-TLV"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iXk-ER-UEA">
+                                <rect key="frame" x="40" y="53" width="240" height="128"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JkA-Xr-bsg">
+                                <rect key="frame" x="60" y="426" width="200" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="IJY-ga-22w"/>
+                                    <constraint firstAttribute="width" constant="200" id="tnz-g2-5dd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7Hz-L5-bRf" firstAttribute="top" secondItem="jzR-sF-pNl" secondAttribute="bottom" constant="12" id="3Ux-xb-2fb"/>
+                            <constraint firstItem="JkA-Xr-bsg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4z1-cm-IHJ"/>
+                            <constraint firstItem="7Hz-L5-bRf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="51X-ny-s2f"/>
+                            <constraint firstItem="iXk-ER-UEA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="33" id="9ve-cP-w4x"/>
+                            <constraint firstItem="jzR-sF-pNl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="APJ-wy-88D"/>
+                            <constraint firstAttribute="trailing" secondItem="iXk-ER-UEA" secondAttribute="trailing" constant="40" id="BR5-1O-16E"/>
+                            <constraint firstItem="jzR-sF-pNl" firstAttribute="top" secondItem="iXk-ER-UEA" secondAttribute="bottom" constant="88" id="D2c-yh-cnf"/>
+                            <constraint firstItem="jzR-sF-pNl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="T43-Tk-dQ5"/>
+                            <constraint firstItem="iXk-ER-UEA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="40" id="XbN-DY-xqH"/>
+                            <constraint firstItem="JkA-Xr-bsg" firstAttribute="top" secondItem="7Hz-L5-bRf" secondAttribute="bottom" constant="85" id="kw4-E3-N6D"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imgView" destination="iXk-ER-UEA" id="4Vg-tR-9yG"/>
+                        <outlet property="statusLbl" destination="JkA-Xr-bsg" id="tws-Yz-waV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="155.73333333333332" y="357.36666666666667"/>
+            <point key="canvasLocation" x="272" y="357"/>
         </scene>
     </scenes>
 </document>
