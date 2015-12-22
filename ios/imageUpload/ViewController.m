@@ -70,13 +70,13 @@
     {
         return;
     }
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.31.114:5000"]];
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:@"http://10.10.69.15:5000"]];
     
     NSData *imageData = UIImageJPEGRepresentation(self.selectedImage, 1.0);
     
     NSMutableURLRequest *request = [manager.requestSerializer
                                     multipartFormRequestWithMethod:@"POST"
-                                    URLString:@"http://192.168.31.114:5000/upload"
+                                    URLString:@"http://10.10.69.15:5000/upload"
                                     parameters:nil
                                     constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
                                         [formData appendPartWithFileData:imageData

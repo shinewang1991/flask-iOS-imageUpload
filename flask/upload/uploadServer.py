@@ -1,3 +1,4 @@
+ #coding:utf-8
 from flask import Flask, jsonify, request,url_for,send_from_directory, g, abort, render_template
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.bootstrap import Bootstrap
@@ -67,13 +68,20 @@ def verify_password(username_or_token,password):
 @app.route('/api/token')
 @auth.login_required
 def get_auth_token():
-    # testuser = User.query.filter_by(username = 'shine').first()
     token = g.user.generate_auth_token()
     return jsonify({'token':token.decode('ascii')})
 
+#首页
 @app.route('/',methods = ['GET','POST'])
+@app.route('/home',methods = ['GET','POST'])
+@auth.login_required
 def mainPage():
-	return 'Hello World'
+    return render_template('base.html'), 200
+
+@app.route('/home/<name>')
+@auth.login_required
+def homePage(name):
+    return render_template('user.html',name = name)
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -83,6 +91,8 @@ def page_not_found(e):
 def internal_server_error(e):
     return render_template('500.html'), 500
 
+
+#上传图片
 @app.route('/upload',methods = ['POST'])
 def upload():
 	imagefile = request.files.get('avatar', '')
@@ -100,7 +110,8 @@ def upload():
 		imagefile.save(filePath)
 		return jsonify({'status':'success'}), 200
 
-@app.route('/login', methods = ['POST'])
+#注册
+@app.route('/users/register', methods = ['POST'])
 def login():
     username = request.json.get('username')
     password = request.json.get('password')
@@ -115,10 +126,24 @@ def login():
     db.session.commit()
     return jsonify({'status':'success'})
 
-@app.route('/home/<name>')
-def homePage(name):
-    return render_template('user.html',name = name)
+#登录
+@app.route('/users/login', methods = ['POST'])
+def login():
+    username = request.json.get('username')
+    password = request.json.get('password')
+    if username is None or password is None:
+        abort(400)
+    if User.query.filter_by(username = username).first() is not None:
+        abort(400)
 
+    user = User(username = username)
+    user.hash_password(password)
+    db.session.add(user)
+    db.session.commit()
+    return jsonify({'status':'success'})
+
+
+#获取资源列表
 @app.route('/upload',methods = ['GET'])
 @auth.login_required
 def getResources():
@@ -134,8 +159,9 @@ def getResources():
 	# 		imageArray.append(url)
 	return jsonify({'status':'success','data':urls})
 
-
+#获取单个资源
 @app.route('/uploads/<filename>')
+@auth.login_required
 def uploaded_file(filename):
 	return send_from_directory(app.config['UPLOAD_FOLDER'],filename)
 

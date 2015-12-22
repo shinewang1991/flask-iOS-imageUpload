@@ -16,7 +16,21 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    if([[NSUserDefaults standardUserDefaults] objectForKey:@"user_Token"])  //有Token则进入主页
+    {
+        HomeViewController *home = [[HomeViewController alloc] init];
+        self.homeViewController = home;
+        self.window.rootViewController = self.homeViewController;
+    }
+    else
+    {
+        LoginViewController *login = [[LoginViewController alloc] init];
+        self.loginViewController = login;
+        self.window.rootViewController = self.loginViewController;
+    }
+    
     return YES;
 }
 
