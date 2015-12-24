@@ -7,6 +7,8 @@
 //
 
 #import "RegistViewController.h"
+#import "AppDelegate.h"
+#import "BLL.h"
 
 @interface RegistViewController ()
 
@@ -29,7 +31,26 @@
 
 - (IBAction)register:(id)sender
 {
-    
+    NSString *username = self.usernameFld.text;
+    NSString *password = self.passwordFld.text;
+    [[BLL sharedInstance] registWithEmail:username andPassword:password success:^(BOOL success) {
+        //
+    } falure:^(NSError *error) {
+        //
+    }];
+
 }
+
+- (IBAction)gotoLogin:(id)sender
+{
+    
+    [UIView transitionWithView:[AppDelegate sharedInstance].window duration:0.5
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        [AppDelegate sharedInstance].window.rootViewController = [AppDelegate sharedInstance].loginViewController;
+                    }
+                    completion:nil];
+}
+
 
 @end

@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "BLL.h"
+#import "AppDelegate.h"
 
 @interface LoginViewController ()
 
@@ -33,10 +34,21 @@
     NSString *username = self.usernameFld.text;
     NSString *password = self.passwordFld.text;
     [[BLL sharedInstance] loginWithEmail:username andPassword:password success:^(NSObject *object) {
-        //
+        
     } falure:^(NSError *error) {
         //
     }];
 }
+
+- (IBAction)gotoRegister:(id)sender
+{
+    
+    [UIView transitionWithView:[AppDelegate sharedInstance].window duration:0.5
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        [AppDelegate sharedInstance].window.rootViewController = [AppDelegate sharedInstance].registerController;
+                    }
+                    completion:nil];
+   }
 
 @end

@@ -112,7 +112,7 @@ def upload():
 
 #注册
 @app.route('/users/register', methods = ['POST'])
-def login():
+def register():
     username = request.json.get('username')
     password = request.json.get('password')
     if username is None or password is None:
@@ -131,16 +131,12 @@ def login():
 def login():
     username = request.json.get('username')
     password = request.json.get('password')
-    if username is None or password is None:
-        abort(400)
-    if User.query.filter_by(username = username).first() is not None:
-        abort(400)
 
-    user = User(username = username)
-    user.hash_password(password)
-    db.session.add(user)
-    db.session.commit()
-    return jsonify({'status':'success'})
+    user = User.query.filter_by(username = username).first()
+    if not user or not user.verify_password(password):
+        return jsonify({'status':'200','result':None,'msg':'user not found'})
+
+    return jsonify({'status':'200','msg':'login success'})
 
 
 #获取资源列表

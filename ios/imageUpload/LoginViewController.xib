@@ -95,13 +95,28 @@
                         <action selector="Login:" destination="-1" eventType="touchUpInside" id="IPg-Wx-Oa6"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eR7-pF-Ucd">
+                    <rect key="frame" x="342" y="131" width="53" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="53" id="I6n-pI-ASZ"/>
+                        <constraint firstAttribute="height" constant="30" id="plD-nc-s0U"/>
+                    </constraints>
+                    <state key="normal" title="register">
+                        <color key="titleColor" red="0.74272017050000005" green="0.2044493" blue="0.63802905210000005" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="gotoRegister:" destination="-1" eventType="touchUpInside" id="kG1-lZ-TRI"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="wMo-lp-gDN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="44g-mI-Zw4"/>
                 <constraint firstItem="wMo-lp-gDN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="CJg-fX-WDO"/>
+                <constraint firstItem="eR7-pF-Ucd" firstAttribute="leading" secondItem="Rcf-0K-d9f" secondAttribute="trailing" constant="-30" id="CgF-61-Wgq"/>
                 <constraint firstItem="wMo-lp-gDN" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="200:300" id="HTc-su-96c"/>
                 <constraint firstItem="Rcf-0K-d9f" firstAttribute="centerX" secondItem="wMo-lp-gDN" secondAttribute="centerX" id="Kko-47-9AI"/>
+                <constraint firstItem="eR7-pF-Ucd" firstAttribute="top" secondItem="iLK-pr-LKV" secondAttribute="bottom" constant="17" id="NB8-k8-FMA"/>
                 <constraint firstAttribute="trailing" secondItem="wMo-lp-gDN" secondAttribute="trailing" id="XOt-fX-Ron"/>
                 <constraint firstItem="Rcf-0K-d9f" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="131" id="be3-0n-y8W"/>
                 <constraint firstItem="wMo-lp-gDN" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="16:9" id="nRD-8I-JNT"/>

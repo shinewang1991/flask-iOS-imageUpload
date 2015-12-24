@@ -13,6 +13,7 @@
 		14D6C2841C1BF36B005468CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14D6C2821C1BF36B005468CB /* Main.storyboard */; };
 		14D6C2861C1BF36B005468CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14D6C2851C1BF36B005468CB /* Assets.xcassets */; };
 		14D6C2891C1BF36B005468CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14D6C2871C1BF36B005468CB /* LaunchScreen.storyboard */; };
+		2E0B28371C2BDF73003092F0 /* MPTTips.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0B28361C2BDF73003092F0 /* MPTTips.m */; };
 		2E2DDDB21C2919A300D422C6 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2DDDB01C2919A300D422C6 /* LoginViewController.m */; };
 		2E2DDDB31C2919A300D422C6 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E2DDDB11C2919A300D422C6 /* LoginViewController.xib */; };
 		2E2DDDB71C2919B900D422C6 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2DDDB51C2919B900D422C6 /* HomeViewController.m */; };
@@ -37,6 +38,8 @@
 		14D6C2851C1BF36B005468CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14D6C2881C1BF36B005468CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14D6C28A1C1BF36B005468CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E0B28351C2BDF73003092F0 /* MPTTips.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPTTips.h; sourceTree = "<group>"; };
+		2E0B28361C2BDF73003092F0 /* MPTTips.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPTTips.m; sourceTree = "<group>"; };
 		2E2DDDAF1C2919A300D422C6 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		2E2DDDB01C2919A300D422C6 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		2E2DDDB11C2919A300D422C6 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -92,6 +95,8 @@
 		14D6C2781C1BF36B005468CB /* imageUpload */ = {
 			isa = PBXGroup;
 			children = (
+				2E0B28351C2BDF73003092F0 /* MPTTips.h */,
+				2E0B28361C2BDF73003092F0 /* MPTTips.m */,
 				2E2DDDB91C291F7800D422C6 /* HttpClient.h */,
 				2E2DDDBA1C291F7800D422C6 /* HttpClient.m */,
 				2E2DDDBF1C29283600D422C6 /* BLL.h */,
@@ -271,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E0B28371C2BDF73003092F0 /* MPTTips.m in Sources */,
 				2E2DDDC41C292AE800D422C6 /* BaseModel.m in Sources */,
 				2E2DDDBB1C291F7800D422C6 /* HttpClient.m in Sources */,
 				2E2DDDBE1C29252E00D422C6 /* UserModel.m in Sources */,

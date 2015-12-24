@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "LoginViewController.h"
+#import "RegistViewController.h"
 #import "HomeViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
@@ -15,8 +16,9 @@
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) LoginViewController *loginViewController;
+@property (strong, nonatomic) RegistViewController *registerController;
 @property (strong, nonatomic) HomeViewController *homeViewController;
 
-
++ (instancetype)sharedInstance;
 @end
 

@@ -14,6 +14,31 @@
 
 @implementation AppDelegate
 
++ (instancetype)sharedInstance
+{
+    return (AppDelegate*)[[UIApplication sharedApplication] delegate];
+}
+
+- (RegistViewController *)registerController
+{
+    if(_registerController == nil)
+    {
+        _registerController = [[RegistViewController alloc] init];
+    }
+    
+    return _registerController;
+}
+
+- (LoginViewController *)loginViewController
+{
+    if(_loginViewController == nil)
+    {
+        _loginViewController = [[LoginViewController alloc] init];
+    }
+    
+    return _loginViewController;
+
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -26,8 +51,6 @@
     }
     else
     {
-        LoginViewController *login = [[LoginViewController alloc] init];
-        self.loginViewController = login;
         self.window.rootViewController = self.loginViewController;
     }
     
