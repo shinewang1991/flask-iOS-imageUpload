@@ -8,7 +8,7 @@
 
 #import "HttpClient.h"
 
-static NSString *const KApiBaseUrlS = @"http://10.10.69.15:5000";
+NSString *const KApiBaseUrlS = @"http://192.168.31.114:5000";
 
 @implementation HttpClient
 

@@ -136,12 +136,13 @@ def login():
     if not user or not user.verify_password(password):
         return jsonify({'status':'200','result':None,'msg':'user not found'})
 
-    return jsonify({'status':'200','msg':'login success'})
+    token = user.generate_auth_token()
+    return jsonify({'status':'200','msg':'success','result':{'username':username,'token':token.decode('ascii')}})
 
 
 #获取资源列表
 @app.route('/upload',methods = ['GET'])
-@auth.login_required
+# @auth.login_required
 def getResources():
 	imageArray = Image.query.all()
 	urls = []
@@ -157,7 +158,7 @@ def getResources():
 
 #获取单个资源
 @app.route('/uploads/<filename>')
-@auth.login_required
+# @auth.login_required
 def uploaded_file(filename):
 	return send_from_directory(app.config['UPLOAD_FOLDER'],filename)
 

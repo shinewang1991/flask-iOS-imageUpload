@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Jeakin. All rights reserved.
 //
 
-#import "MPTObject.h"
+
 #import "MBProgressHUD.h"
 #import <UIKit/UIKit.h>
 
-@interface MPTTips : MPTObject
+@interface MPTTips : NSObject
 
 void showAlertChoiceWithDelegate(NSString*text, id <UIAlertViewDelegate> delegate, int tag);
 void showAlertReversionChoiceWithDelegate(NSString*text, id <UIAlertViewDelegate> delegate, int tag);

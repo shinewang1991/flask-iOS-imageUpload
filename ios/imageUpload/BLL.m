@@ -52,7 +52,7 @@
 
 }
 
-- (void)loginWithEmail:(NSString *)email andPassword:(NSString *)password success:(void (^)(NSObject *object))sucesssBlock falure:(void(^)(NSError *error))failureBlock
+- (void)loginWithEmail:(NSString *)email andPassword:(NSString *)password success:(void (^)(BOOL result, NSObject *object))sucesssBlock falure:(void(^)(NSError *error))failureBlock;
 {
     NSDictionary * parameters = @{@"username":email,@"password":password};
     
@@ -64,13 +64,24 @@
             {
                 NSError *error = nil;
 
-                UserModel *user = [UserModel fromJSONDictionary:responseObject[@"result"] error:&error];
-                sucesssBlock(user);
+//                UserModel *user = [UserModel fromJSONDictionary:responseObject[@"result"] error:&error];
+//                sucesssBlock(user);
+                if([[responseObject objectForKey:@"msg"] isEqualToString:@"success"])
+                {
+                    UserModel *user = [UserModel fromJSONDictionary:[responseObject objectForKey:@"result"] error:&error];
+                    
+                     sucesssBlock(YES,user);
+                }
+                else
+                {
+                    sucesssBlock(NO,nil);
+                }
+               
                 
             }
             else
             {
-                sucesssBlock(nil);
+                sucesssBlock(NO,nil);
             }
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

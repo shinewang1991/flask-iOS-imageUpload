@@ -14,5 +14,5 @@
 
 - (void)registWithEmail:(NSString *)email andPassword:(NSString *)password success:(void (^)(BOOL success))sucesssBlock falure:(void(^)(NSError *error))failureBlock;
 
-- (void)loginWithEmail:(NSString *)email andPassword:(NSString *)password success:(void (^)(NSObject *object))sucesssBlock falure:(void(^)(NSError *error))failureBlock;
+- (void)loginWithEmail:(NSString *)email andPassword:(NSString *)password success:(void (^)(BOOL result, NSObject *object))sucesssBlock falure:(void(^)(NSError *error))failureBlock;
 @end

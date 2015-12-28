@@ -40,6 +40,17 @@
 
 }
 
+- (HomeViewController *)homeViewController
+{
+    if(_homeViewController == nil)
+    {
+        _homeViewController = [[HomeViewController alloc] init];
+        
+    }
+    
+    return _homeViewController;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     

@@ -9,6 +9,8 @@
 #import "LoginViewController.h"
 #import "BLL.h"
 #import "AppDelegate.h"
+#import "MPTTips.h"
+#import "UserModel.h"
 
 @interface LoginViewController ()
 
@@ -33,10 +35,24 @@
 {
     NSString *username = self.usernameFld.text;
     NSString *password = self.passwordFld.text;
-    [[BLL sharedInstance] loginWithEmail:username andPassword:password success:^(NSObject *object) {
-        
+    [[BLL sharedInstance] loginWithEmail:username andPassword:password success:^(BOOL result, NSObject *object) {
+        if(result)
+        {
+            [MPTTips showTips:@"login success" duration:1.f];
+            
+            UserModel *userModel =  (UserModel *)object;
+            NSString *userToken = userModel.token;
+            [[NSUserDefaults standardUserDefaults] setValue:userToken forKey:@"User-Token"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            [AppDelegate sharedInstance].window.rootViewController = [AppDelegate sharedInstance].homeViewController;
+        }
+        else
+        {
+            [MPTTips showTips:@"login failed" duration:1.f];
+        }
     } falure:^(NSError *error) {
-        //
+        
+        [MPTTips showTips:@"login failed" duration:1.f];
     }];
 }
 

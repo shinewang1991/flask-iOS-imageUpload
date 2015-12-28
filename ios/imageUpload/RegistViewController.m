@@ -9,6 +9,7 @@
 #import "RegistViewController.h"
 #import "AppDelegate.h"
 #import "BLL.h"
+#import "MPTTips.h"
 
 @interface RegistViewController ()
 
@@ -34,9 +35,11 @@
     NSString *username = self.usernameFld.text;
     NSString *password = self.passwordFld.text;
     [[BLL sharedInstance] registWithEmail:username andPassword:password success:^(BOOL success) {
-        //
+        
+        [MPTTips showTips:@"register success" duration:1.f];
     } falure:^(NSError *error) {
-        //
+        
+        [MPTTips showTips:@"register failed" duration:1.f];
     }];
 
 }

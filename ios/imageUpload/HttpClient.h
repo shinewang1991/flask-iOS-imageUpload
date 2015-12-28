@@ -8,6 +8,8 @@
 
 #import "AFHTTPRequestOperationManager.h"
 
+extern NSString *const KApiBaseUrlS;
+
 @interface HttpClient : AFHTTPRequestOperationManager
 
 + (HttpClient *)sharedHTTPClient;

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Mantle.h"
-@interface BaseModel :MTLModel
+@interface BaseModel :MTLModel<MTLJSONSerializing>
 
 + (instancetype) fromJSONDictionary:(NSDictionary *)JSONDictionary error:(NSError **)error;
 
